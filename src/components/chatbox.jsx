@@ -23,6 +23,7 @@ function Chatbox() {
 //   };
 
 const handleSendMessage = () => {
+<<<<<<< HEAD
   if (input.trim()) {
     const newMessage = { user: 'client', text: input };
     setMessages([...messages, newMessage]);
@@ -49,6 +50,34 @@ const handleSendMessage = () => {
     });
   }
 };
+=======
+    if (input.trim()) {
+      const newMessage = { user: 'client', text: input };
+      setMessages([...messages, newMessage]);
+      setInput('');
+
+      // Hacer una solicitud al backend Flask
+      fetch('https://chatbot-makers-backend.onrender.com/api/v1/chat/message', {  // Reemplaza con la URL de tu backend
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: input })  // Enviar la pregunta del usuario
+      })
+      .then(response => response.json())
+        .then(data => {
+        console.log("Respuesta del bot:", data.response);
+        const botMessage = { user: 'bot', text: data.response };  // Respuesta del bot
+        setMessages(prev => [...prev, botMessage]);  // Añadir la respuesta del bot
+      })
+      .catch(error => {
+        console.error("Error al enviar el mensaje:", error);
+        const errorMessage = { user: 'bot', text: 'Hubo un error al obtener la respuesta.' };
+        setMessages(prev => [...prev, errorMessage]);
+      });
+    }
+  };
+>>>>>>> a12254a9040188a203094a068040e6020d590b48
 
 
   const toggleChatbox = () => {
@@ -60,7 +89,7 @@ const handleSendMessage = () => {
       <div className="chatbox-header" onClick={toggleChatbox}>
         <h3>Chat box</h3>
       </div>
-      
+
       {/* Condicional para mostrar/ocultar el cuerpo y pie del chatbox */}
       {!isCollapsed && (
         <>
