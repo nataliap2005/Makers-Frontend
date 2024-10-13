@@ -1,0 +1,117 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+  }
+  
+  .navbar-dark {
+    background-color: #1f2937; /* bg-gray-800 */
+    border-bottom: 1px solid #4b5563; /* border-gray-700 */
+  }
+  
+  .navbar-container {
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .button-menu {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: 0.875rem; 
+    color: #43464c; 
+    border-radius: 0.5rem; 
+    display: none;  
+    border: none;   /* Elimina el borde del botón */
+    background-color: transparent;  /* Fondo transparente */
+    box-shadow: none; /* Elimina cualquier sombra que tenga */
+  }
+  
+  .button-menu:hover {
+    background-color: #f3f4f6; 
+    border-radius: 70px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem; /* text-xl */
+    color: #8b5cf6; /* text-violet-500 */
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 1.5rem; /* sm:text-2xl */
+    margin-left: 0.75rem;
+  }
+  
+  .dark-mode-text {
+    color: white; /* dark:text-white */
+  }
+  
+  .icon {
+    font-size: 1.5rem; /* text-2xl */
+    cursor: pointer;
+
+  }
+  
+
+  .navbar-container {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Separa el menú y el modo oscuro */
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Añade espacio entre el botón, logo y texto */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  color: black; /* Cambia el color del enlace a negro */
+  text-decoration: none; /* Elimina la línea subrayada */
+  font-weight: 600;
+  font-size: 1.5rem; /* Tamaño del texto para "Makers Tech" */
+  margin-left: 10px; /* Separar el logo del texto */
+}
+
+.button-menu {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280; /* text-gray-500 */
+  border-radius: 0.5rem;
+  margin-right: 20px; /* Espaciado entre botón y logo */
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-left: 20px; /* Espaciado entre texto y botón de modo oscuro */
+}

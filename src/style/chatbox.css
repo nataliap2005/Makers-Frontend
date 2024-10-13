@@ -1,0 +1,82 @@
+.chatbox {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f9;
+  box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño */
+  
+  /* Posicionamiento fijo en la esquina inferior derecha */
+  position: fixed;
+  bottom: 20px;   /* Se ajusta a 20px del fondo de la ventana */
+  right: 20px;    /* Se ajusta a 20px del borde derecho */
+  z-index: 1000;  /* Asegura que esté por encima de otros elementos */
+}
+
+.chatbox-header {
+  padding: 10px;
+  background-color: #8b5cf6;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer; 
+}
+
+.chatbox-body {
+  height: 250px; /* Mantiene una altura fija */
+  max-height: 250px;
+  min-height: 250px; /* Añadir min-height para evitar que se haga más pequeña sin mensajes */
+  padding: 10px;
+  background-color: white;
+  overflow-y: auto; /* Permite el desplazamiento cuando hay muchos mensajes */
+  flex: 1;
+  box-sizing: border-box; /* Incluye padding en el tamaño */
+}
+
+.client-message, .bot-message {
+  padding: 8px;
+  border-radius: 10px;
+  word-wrap: break-word; /* Evita desbordamientos de texto */
+}
+
+.client-message {
+  text-align: right;
+  margin-bottom: 10px;
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.bot-message {
+  text-align: left;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+}
+
+.chatbox-footer {
+  padding: 10px;
+  display: flex;
+}
+
+.chatbox-footer input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+  box-sizing: border-box;
+}
+
+.chatbox-footer button {
+  padding: 8px;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chatbox-footer button:hover {
+  background-color: #8b5cf6;
+}
