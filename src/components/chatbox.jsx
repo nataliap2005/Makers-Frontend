@@ -23,34 +23,6 @@ function Chatbox() {
 //   };
 
 const handleSendMessage = () => {
-<<<<<<< HEAD
-  if (input.trim()) {
-    const newMessage = { user: 'client', text: input };
-    setMessages([...messages, newMessage]);
-    setInput('');
-
-    // Hacer una solicitud al backend Flask
-    fetch('http://localhost:5000/chat', {  // Reemplaza con la URL de tu backend
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ question: input })  // Enviar la pregunta del usuario
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Respuesta del backend:', data);  // Depuración
-      const botMessage = { user: 'bot', text: data.response };  // Respuesta del bot
-      setMessages(prev => [...prev, botMessage]);  // Añadir la respuesta del bot
-    })
-    .catch(error => {
-      console.error("Error al enviar el mensaje:", error);
-      const errorMessage = { user: 'bot', text: 'Hubo un error al obtener la respuesta.' };
-      setMessages(prev => [...prev, errorMessage]);
-    });
-  }
-};
-=======
     if (input.trim()) {
       const newMessage = { user: 'client', text: input };
       setMessages([...messages, newMessage]);
@@ -77,7 +49,6 @@ const handleSendMessage = () => {
       });
     }
   };
->>>>>>> a12254a9040188a203094a068040e6020d590b48
 
 
   const toggleChatbox = () => {
