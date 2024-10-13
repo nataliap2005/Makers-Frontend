@@ -4,7 +4,7 @@ import Sidebar from '../components/sidebar';
 import Header from '../components/header';
 import Card from '../components/card';
 import { FaUsers, FaBox, FaShoppingCart } from 'react-icons/fa';
-// import ChartSection from '../components/ChartSection';
+import Chart from '../components/chart';
 
 const Dashboard =() => {
   return (
@@ -22,6 +22,9 @@ const Dashboard =() => {
           
         </div>
       </div>
+      <div className="chard-container">
+       
+      <Chart   /></div>
     </div>
   );
 }

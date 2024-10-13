@@ -1,78 +1,35 @@
-.dashboard {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width: 250px;
-    background-color: #111;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sidebar h2 {
-    margin-bottom: 40px;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 15px 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #333;
-  }
-  
-  .main-content {
-    flex: 1;
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-  
-  .header {
-    background-color: #fff;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-  }
-  
+body{
+  background-color: rgb(238, 235, 235);
+}
 .card-container {
   display: flex;
-  justify-content: space-between; /* Distribuye las cards de manera uniforme */
-  gap: 20px; /* Espacio entre cards */
-  flex-wrap: wrap;
-   /* Permite que las cards se muevan a la siguiente fila si no hay suficiente espacio */
+  justify-content: space-between;
+  flex-wrap: wrap; /* Para que las tarjetas se ajusten bien si la pantalla es pequeña */
+  margin: 20px;
+  padding: 20px;
+  gap: 20px; /* Espacio entre tarjetas */
 }
 
-/* Estilos para hacer una card más grande (como la del gráfico de barras) */
-.card.large {
-  flex: 2;
+/* Estilos para la gráfica */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Para que las tarjetas se ajusten bien si la pantalla es pequeña */
+  margin: 20px;
+  padding: 20px;
+  gap: 20px; 
 }
 
-/* Lista de eventos */
-.card ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.card ul li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: #666;
-}
-
-.dashboard-container {
+/* Estilo general para el Dashboard */
+.dashboard {
   display: flex;
   flex-direction: column;
-  gap: 20px;  /* Espacio entre filas de cards */
+  gap: 20px;
+}
+
+.main-content {
+  margin-left: 250px; /* Asegura que no se sobreponga el sidebar */
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }

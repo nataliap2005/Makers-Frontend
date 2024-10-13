@@ -1,0 +1,20 @@
+/* src/style/salesChart.css */
+.sales-chart-container {
+    background-color: #fff;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%; /* Ajustamos para que sea más pequeño */
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .chart-title {
+    text-align: center;
+    font-size: 1.2rem; /* Un poco más pequeño */
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+  

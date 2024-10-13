@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../style/chatbox.css';
+import { FaPaperPlane } from 'react-icons/fa'; 
 
 
 function Chatbox() {
@@ -22,32 +23,33 @@ function Chatbox() {
 //   };
 
 const handleSendMessage = () => {
-    if (input.trim()) {
-      const newMessage = { user: 'client', text: input };
-      setMessages([...messages, newMessage]);
-      setInput('');
-  
-      // Hacer una solicitud al backend Flask
-      fetch('http://localhost:5000/chat', {  // Reemplaza con la URL de tu backend
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ question: input })  // Enviar la pregunta del usuario
-      })
-      .then(response => response.json())
-      .then(data => {
-        const botMessage = { user: 'bot', text: data.response };  // Respuesta del bot
-        setMessages(prev => [...prev, botMessage]);  // Añadir la respuesta del bot
-      })
-      .catch(error => {
-        console.error("Error al enviar el mensaje:", error);
-        const errorMessage = { user: 'bot', text: 'Hubo un error al obtener la respuesta.' };
-        setMessages(prev => [...prev, errorMessage]);
-      });
-    }
-  };
-  
+  if (input.trim()) {
+    const newMessage = { user: 'client', text: input };
+    setMessages([...messages, newMessage]);
+    setInput('');
+
+    // Hacer una solicitud al backend Flask
+    fetch('http://localhost:5000/chat', {  // Reemplaza con la URL de tu backend
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ question: input })  // Enviar la pregunta del usuario
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Respuesta del backend:', data);  // Depuración
+      const botMessage = { user: 'bot', text: data.response };  // Respuesta del bot
+      setMessages(prev => [...prev, botMessage]);  // Añadir la respuesta del bot
+    })
+    .catch(error => {
+      console.error("Error al enviar el mensaje:", error);
+      const errorMessage = { user: 'bot', text: 'Hubo un error al obtener la respuesta.' };
+      setMessages(prev => [...prev, errorMessage]);
+    });
+  }
+};
+
 
   const toggleChatbox = () => {
     setIsCollapsed(!isCollapsed);  // Cambiar el estado de colapsar/expandir
@@ -77,7 +79,7 @@ const handleSendMessage = () => {
               placeholder="Escribe un mensaje..."
               onKeyPress={(e) => e.key === 'Enter' ? handleSendMessage() : null}
             />
-            <button onClick={handleSendMessage}>Enviar</button>
+            <button onClick={handleSendMessage}><FaPaperPlane /> </button>
           </div>
         </>
       )}
