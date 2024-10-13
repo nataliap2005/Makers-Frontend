@@ -26,17 +26,18 @@ const handleSendMessage = () => {
       const newMessage = { user: 'client', text: input };
       setMessages([...messages, newMessage]);
       setInput('');
-  
+
       // Hacer una solicitud al backend Flask
-      fetch('http://localhost:5000/chat', {  // Reemplaza con la URL de tu backend
+      fetch('https://chatbot-makers-backend.onrender.com/api/v1/chat/message', {  // Reemplaza con la URL de tu backend
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ question: input })  // Enviar la pregunta del usuario
+        body: JSON.stringify({ message: input })  // Enviar la pregunta del usuario
       })
       .then(response => response.json())
-      .then(data => {
+        .then(data => {
+        console.log("Respuesta del bot:", data.response);
         const botMessage = { user: 'bot', text: data.response };  // Respuesta del bot
         setMessages(prev => [...prev, botMessage]);  // Añadir la respuesta del bot
       })
@@ -47,7 +48,7 @@ const handleSendMessage = () => {
       });
     }
   };
-  
+
 
   const toggleChatbox = () => {
     setIsCollapsed(!isCollapsed);  // Cambiar el estado de colapsar/expandir
@@ -58,7 +59,7 @@ const handleSendMessage = () => {
       <div className="chatbox-header" onClick={toggleChatbox}>
         <h3>Chat box</h3>
       </div>
-      
+
       {/* Condicional para mostrar/ocultar el cuerpo y pie del chatbox */}
       {!isCollapsed && (
         <>
