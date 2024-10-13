@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import '../style/dashboard.css';
 import Sidebar from '../components/sidebar';
 import Header from '../components/header';
@@ -6,7 +6,24 @@ import Card from '../components/card';
 import { FaUsers, FaBox, FaShoppingCart } from 'react-icons/fa';
 import Chart from '../components/chart';
 
-const Dashboard =() => {
+const Dashboard = () => {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://chatbot-makers-backend.onrender.com/api/v1/dashboard/metrics');
+        const result = await response.json();
+        setData(result.metricsData);
+        setLoading(false);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="dashboard">
       <Header />
@@ -15,15 +32,17 @@ const Dashboard =() => {
         <br></br>
         <br></br>
         <br></br>
-        <div className="card-container">
-          <Card  title="Total Users" value="200" icon={<FaUsers />} />
-          <Card  title="Total Products" value="200/250" icon={<FaBox />}/>
-          <Card  title="Sells" value="200/250" icon={<FaShoppingCart />} />
-          
-        </div>
+        { !loading &&
+          <div className="card-container">
+            <Card title="Total Computers" value={data.totalComputers} icon={<FaUsers />} />
+            <Card title="Total Inventory Value" value={data.totalInventoryValue} icon={<FaBox />} />
+            <Card title="Total Brands" value={data.totalBrands} icon={<FaShoppingCart />} />
+
+          </div>
+        }
       </div>
       <div className="chard-container">
-       
+
       <Chart   /></div>
     </div>
   );
